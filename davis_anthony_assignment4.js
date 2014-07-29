@@ -11,17 +11,34 @@ var phoneReturn;
 
 // Does a string follow a phone number?
 // needs to follow 111-111-1111 format only boolean
+
 var phoneNumberCheck = function (phoneNumber) {
-    
+    var bool;
     var stringLength = phoneNumber.length;
-    
-    if (stringLength !== 11) {
+    for (var cnt = 0; cnt < stringLength; cnt++) {
+        if (phoneNumber[cnt] === 
+            ("1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9" || "0") || phoneNumber[cnt] === "-"){
+            
+            bool = true;
+        };
+    };
         
-        return true;
-    }
-    
+       
+    if (bool === true){
+            
+        if (phoneNumber[3] === "-" && phoneNumber[7] === "-"){
+                
+            if (stringLength === 12){
+                bool = true;
+                console.log("This is a Valid Phone Number");
+                return bool;
+            };
+        };
+    };
+
     console.log("This is not a valid phone number. Please enter it in 123-456-7890 format.");
-    return false;
+    bool = false;
+    return bool;
 };
 
 
@@ -42,3 +59,9 @@ console.log(phoneReturn = phoneNumberCheck("123-456-7890"));
 console.log("-------------");
 console.log(" ");
 console.log(phoneReturn = phoneNumberCheck("123-4567890"));
+console.log(" ");
+console.log(phoneReturn = phoneNumberCheck("123-456789-0"));
+console.log(" ");
+console.log("testing below");
+
+
